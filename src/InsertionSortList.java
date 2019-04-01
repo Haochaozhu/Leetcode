@@ -29,7 +29,6 @@ public class InsertionSortList {
             val = x;
         }
     }
-
     public ListNode insertionSortList(ListNode head) {
         if (head == null || head.next == null) {
                 return head;

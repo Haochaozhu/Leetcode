@@ -38,13 +38,6 @@ public class NumberComplement {
     }
 
     public static void main(String[] args) {
-        System.out.println(Integer.toBinaryString(2));
-        char[] input_array = Integer.toBinaryString(2).toCharArray();
-        for (int i = 0; i < input_array.length; i += 1) {
-            if (input_array[i] == '0') input_array[i] = '1';
-            else input_array[i] = '0';
-        }
-        System.out.println(input_array);
-
+        System.out.println(Integer.toBinaryString(0));
     }
 }

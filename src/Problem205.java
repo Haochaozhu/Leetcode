@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
 
-/*
+/**
 205. Isomorphic Strings
 
 Given two strings s and t, determine if they are isomorphic.
@@ -31,7 +31,7 @@ a = g
 b = d
 (e,a)
 
- */
+ **/
 public class Problem205 {
     public boolean isIsomorphic(String s, String t) {
         if (s == null || s.length() <= 1) return true;

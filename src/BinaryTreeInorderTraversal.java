@@ -20,12 +20,6 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 
  */
 public class BinaryTreeInorderTraversal {
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
 
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> ans = new LinkedList<>();

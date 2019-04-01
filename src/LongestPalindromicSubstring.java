@@ -44,7 +44,6 @@ public class LongestPalindromicSubstring {
         return true;
     }
 
-
     public static void main(String[] args) {
         LongestPalindromicSubstring p = new LongestPalindromicSubstring();
         StdOut.println(p.longestPalindrome("cbbd"));

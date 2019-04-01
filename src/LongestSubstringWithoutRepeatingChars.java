@@ -26,6 +26,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class LongestSubstringWithoutRepeatingChars {
+    /**
+     * Sliding window algorithm
+     */
     public int lengthOfLongestSubstring(String s) {
         Map<Character, Integer> map = new HashMap<>();
         int maxLength = 0;

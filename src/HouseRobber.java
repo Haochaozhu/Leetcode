@@ -1,4 +1,4 @@
-/*
+/**
 You are a professional robber planning to rob houses along a street.
 Each house has a certain amount of money stashed, the only constraint stopping
 you from robbing each of them is that adjacent houses have security system
@@ -21,15 +21,15 @@ Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (m
              Total amount you can rob = 2 + 9 + 1 = 12.
 
  */
-public class Problem198 {
+public class HouseRobber {
     public int rob(int[] nums) {
-        int prevRob = 0, prevNoRob = 0;
-        for (int i = 0; i < nums.length; i += 1) {
-            int temp = prevNoRob;
-            prevNoRob = Math.max(prevRob, prevNoRob);
-            prevRob = temp + nums[i];
+        return robHelper(nums, nums.length - 1);
+    }
+    private int robHelper(int[] nums, int i) {
+        if (i < 0) {
+            return 0;
         }
-        return Math.max(prevNoRob, prevRob);
+        return Math.max(robHelper(nums, i - 1), robHelper(nums, i - 2) + nums[i]);
     }
 
 }

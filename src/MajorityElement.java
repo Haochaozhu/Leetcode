@@ -18,7 +18,10 @@ Example 2:
 Input: [2,2,1,1,1,2,2]
 Output: 2
  */
-public class Problem169 {
+public class MajorityElement {
+    /**
+     * Boyer-Moore Voting Algorithm
+\     */
     public int majorityElement(int[] nums) {
         int majority = nums[0]; int count = 1;
         for (int i = 1; i < nums.length; i += 1) {
