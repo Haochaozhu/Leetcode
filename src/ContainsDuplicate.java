@@ -22,7 +22,7 @@ Output: true
 
  */
 
-public class Problem217 {
+public class ContainsDuplicate {
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {

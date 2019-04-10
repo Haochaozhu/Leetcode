@@ -77,10 +77,8 @@ public class ComplementOfBase10Integer {
     public static void main(String[] args) {
         System.out.println(Integer.toBinaryString(7));
         System.out.println(Integer.highestOneBit(7));
-
         System.out.println(Integer.toBinaryString(15));
         System.out.println(Integer.highestOneBit(8));
-
     }
 /**
 

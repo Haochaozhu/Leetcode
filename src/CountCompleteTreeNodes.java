@@ -77,8 +77,8 @@ public class CountCompleteTreeNodes {
 
     private int countLastLevel(TreeNode root, int height) {
         if (height == 1) {
-            if (root.right!=null) return 2;
-            else if (root.left!=null) return 1;
+            if (root.right != null) return 2;
+            else if (root.left != null) return 1;
             else return 0;
         }
         TreeNode midNode = root.left;

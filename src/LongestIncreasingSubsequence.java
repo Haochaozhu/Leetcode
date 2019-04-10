@@ -15,7 +15,7 @@
 public class LongestIncreasingSubsequence {
     /**
      * DP approach.
-     * dp[i] records the LIS ad position i (0 <= i <= nums.length - 1).
+     * dp[i] records the LIS at position i (0 <= i <= nums.length - 1).
      * Time complexity: O(n²).
      */
     public int lengthOfLIS(int[] nums) {

@@ -1,3 +1,4 @@
+
 /*
 268. Missing Number
 Given an array containing n distinct numbers taken from 0, 1, 2, ..., n,
@@ -17,13 +18,14 @@ Could you implement it using only constant extra space complexity?
 
 
  */
-public class Problem268 {
+public class MissingNumber {
     public int missingNumber(int[] nums) {
-        int expectedSum = nums.length*(nums.length + 1)/2;
-        int actualSum = 0;
-        for (int num : nums) actualSum += num;
-        return expectedSum - actualSum;
+        return 0;
+    }
 
+    public static void main(String[] args) {
+        System.out.println(Integer.toBinaryString(9));
+        System.out.println(Integer.toBinaryString(6));
     }
 
 }

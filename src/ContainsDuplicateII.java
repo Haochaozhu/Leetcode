@@ -21,7 +21,7 @@ Input: nums = [1,2,3,1,2,3], k = 2
 Output: false
 
  */
-public class Problem219 {
+public class ContainsDuplicateII {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i += 1) {

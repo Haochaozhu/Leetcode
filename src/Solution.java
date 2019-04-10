@@ -29,22 +29,29 @@ public class Solution {
         scan.nextLine();
         int index = 1;
         while (testcases > 0) {
-            int R = scan.nextInt();
-            int C = scan.nextInt();
+            int N = scan.nextInt();
             scan.nextLine();
-            String[] grid = new String[R];
-            for (int i = 0; i < R; i += 1) {
-                grid[i] = scan.nextLine();
-            }
-            System.out.println("Case #" + index + ": " + solve(grid));
+            int[] res = solve(N);
+            int a = res[0];
+            int b = res[1];
+            System.out.println("Case #" + index + ": " + a + " " + b);
             index += 1;
             testcases -= 1;
         }
 
     }
+    private static int[] solve(int N) {
+        for (int i = 1; i <= N / 2; i += 1) {
+            if (!hasFour(i) && !hasFour(N - i)) return new int[]{i, N - i};
+        }
+        return null;
+    }
 
-    private static int solve(String[] grid) {
-
-        return 0;
+    private static boolean hasFour(int n) {
+        while (n != 0) {
+            if (n % 10 == 4) return true;
+            n /= 10;
+        }
+        return false;
     }
 }

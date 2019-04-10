@@ -51,5 +51,6 @@ public class PathSumII {
             addPath(wrapper, lst, node.right, sum - node.val);
         }
         lst.remove(lst.size() - 1);
+
     }
 }

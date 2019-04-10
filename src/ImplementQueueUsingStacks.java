@@ -19,11 +19,11 @@ queue.pop();   // returns 1
 queue.empty(); // returns false
 
  */
-public class Problem232 {
+public class ImplementQueueUsingStacks {
     private Stack<Integer> stack;
     private Stack<Integer> cache;
     /** Initialize your data structure here. */
-    public Problem232() {
+    public ImplementQueueUsingStacks() {
         stack = new Stack<>();
         cache = new Stack<>();
     }

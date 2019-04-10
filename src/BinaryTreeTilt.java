@@ -24,12 +24,16 @@
  * All the tilt values won't exceed the range of 32-bit integer.
  */
 public class BinaryTreeTilt {
+    int tilt = 0;
     private int findTilt(TreeNode root) {
+        postOrder(root);
+        return tilt;
+    }
+    private int postOrder(TreeNode root) {
         if (root == null) return 0;
-        int leftTilt = findTilt(root.left);
-        int rightTilt = findTilt(root.right);
-        int leftVal = root.left == null ? 0 : root.left.val;
-        int rightVal = root.right == null ? 0 : root.right.val;
-        return Math.abs(leftVal - rightVal) + leftTilt + rightTilt;
+        int l = postOrder(root.left);
+        int r = postOrder(root.right);
+        tilt += Math.abs(l - r);
+        return l + r + root.val;
     }
 }
