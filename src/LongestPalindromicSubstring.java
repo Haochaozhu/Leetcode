@@ -44,6 +44,35 @@ public class LongestPalindromicSubstring {
         return true;
     }
 
+    public String longestPalindrome2(String s) {
+        int N = s.length();
+        int index = 0, length = 0;
+        boolean[][] dp = new boolean[N][N];
+        for (int i = 0; i < N; i += 1) {
+            dp[i][i] = true;
+        }
+        for (int i = 0; i < N - 1; i += 1) {
+            if (s.charAt(i) == s.charAt(i + 1)) {
+                dp[i][i + 1] = true;
+                index = i;
+                length = 2;
+            }
+        }
+        for (int k = 3; k <= N; k += 1) {
+            for (int i = 0; i < N - k + 1; i += 1) {
+                int j = i + k - 1;
+                if (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1]) {
+                    dp[i][j] = true;
+                    if (k > length) {
+                        index = i;
+                        length = k;
+                    }
+                }
+            }
+        }
+        return s.substring(index, index + length);
+    }
+
     public static void main(String[] args) {
         LongestPalindromicSubstring p = new LongestPalindromicSubstring();
         StdOut.println(p.longestPalindrome("cbbd"));

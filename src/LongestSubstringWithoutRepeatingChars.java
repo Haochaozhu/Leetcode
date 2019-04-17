@@ -33,7 +33,7 @@ public class LongestSubstringWithoutRepeatingChars {
         Map<Character, Integer> map = new HashMap<>();
         int maxLength = 0;
         for (int i = 0, j = 0; j < s.length(); j += 1) {
-            char c = s.charAt(i);
+            char c = s.charAt(j);
             if (map.containsKey(c)) i = Math.max(i, map.get(c) + 1);
             map.put(c, j);
             maxLength = Math.max(maxLength, j - i + 1);
@@ -46,3 +46,4 @@ public class LongestSubstringWithoutRepeatingChars {
         StdOut.println(index['c']);
     }
 }
+// a b c d e f g h d

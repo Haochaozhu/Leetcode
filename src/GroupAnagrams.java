@@ -20,16 +20,15 @@ The order of your output does not matter.
  */
 public class GroupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
-        if (strs.length == 0) return new ArrayList<>();
-        Map<String, List> map = new HashMap<>();
+        Map<String, ArrayList<String>> map = new HashMap<>();
         for (String s : strs) {
-            char[] c = s.toCharArray();
-            Arrays.sort(c);
-            String sorted = String.valueOf(c);
-            if (!map.containsKey(sorted)) map.put(sorted, new ArrayList());
-            map.get(sorted).add(sorted);
+            char[] cur = s.toCharArray();
+            Arrays.sort(cur);
+            String sorted = String.valueOf(cur);
+            if (!map.containsKey(sorted)) map.put(sorted, new ArrayList<>());
+            else map.get(sorted).add(s);
         }
-        return new ArrayList(map.values());
+        return new ArrayList<>(map.values());
     }
 
 }

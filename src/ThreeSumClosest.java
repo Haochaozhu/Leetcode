@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-/*
+/**
 Given an array nums of n integers and an integer target,
 find three integers in nums such that the sum is closest to target.
 Return the sum of the three integers. You may assume that each input would have exactly one solution.
@@ -16,22 +16,22 @@ The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
  */
 public class ThreeSumClosest {
     public int threeSumClosest(int[] nums, int target) {
+        int ans = 0;
         int minDiff = Integer.MAX_VALUE;
-        int res = 0;
         Arrays.sort(nums);
         for (int i = 0; i < nums.length - 2; i += 1) {
-            int p = i + 1; int q = nums.length - 1;
-            while (p < q) {
-                int sum = nums[i] + nums[p] + nums[q];
+            int l = i + 1, r = nums.length - 1;
+            while (l < r) {
+                int sum = nums[i] + nums[l] + nums[r];
                 if (sum == target) return target;
-                else if (sum < target) p += 1;
-                else q -= 1;
+                if (sum < target) l += 1;
+                else r -= 1;
                 if (Math.abs(sum - target) < minDiff) {
                     minDiff = Math.abs(sum - target);
-                    res = sum;
+                    ans = sum;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }

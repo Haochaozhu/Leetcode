@@ -28,32 +28,29 @@
  */
 public class EditDistance {
     public static int minDistance(String word1, String word2) {
-        if (word1.isEmpty()) return word2.length();
-        if (word2.isEmpty()) return word1.length();
-        int LCS  = longestCommonSequence(word1, word2);
-        if (word1.length() >= word2.length()) return word1.length() - LCS;
-        else return word2.length() - LCS;
-    }
-
-    private static int longestCommonSequence(String word1, String word2) {
         int m = word1.length();
         int n = word2.length();
         int[][] dp = new int[m + 1][n + 1];
-        for (int i = 0; i <= m; i += 1) {
-            for (int j = 0; j <= n; j += 1) {
-                if (i == 0 || j == 0) continue;
+        for (int i = 1; i <= n; i += 1) {
+            dp[0][i] = i;
+        }
+        for (int i = 1; i <= m; i += 1) {
+            dp[i][0] = i;
+        }
+        for (int i = 1; i <= m; i += 1) {
+            for (int j = 1; j <= n; j += 1) {
                 if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                    dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    int delete = dp[i - 1][j];
+                    int replace = dp[i - 1][j - 1];
+                    int insert = dp[i][j - 1];
+                    dp[i][j] = Math.min(Math.min(delete, replace), insert) + 1;
                 }
             }
         }
         return dp[m][n];
     }
 
-    public static void main(String[] args) {
-        System.out.println(longestCommonSequence("intention", "execution"));
-    }
 
 }
