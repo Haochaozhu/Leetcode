@@ -28,6 +28,9 @@ public class GenerateParentheses {
     public List<String> generateParenthesis(int n) {
         LinkedList<String> ans = new LinkedList<>();
         backTrack(ans, "", 0, 0, n);
+        for (String s : ans) {
+            System.out.println(s);
+        }
         return ans;
     }
 
@@ -38,6 +41,11 @@ public class GenerateParentheses {
         }
         if (open < max) backTrack(lst, str + '(', open + 1, close, max);
         if (close < open) backTrack(lst, str + ')', open, close + 1, max);
+    }
+
+    public static void main(String[] args) {
+        GenerateParentheses g = new GenerateParentheses();
+        g.generateParenthesis(3);
     }
 
 }

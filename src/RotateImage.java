@@ -1,4 +1,4 @@
-/*
+/**
 You are given an n x n 2D matrix representing an image.
 
 Rotate the image by 90 degrees (clockwise).
@@ -45,6 +45,25 @@ rotate the input matrix in-place such that it becomes:
  */
 public class RotateImage {
     public void rotate(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int i = 0, j = m - 1;
+        while (i < j) {
+            int[] temp = matrix[i];
+            matrix[i] = matrix[j];
+            matrix[j] = temp;
+            i++;
+            j--;
+        }
+
+        for(int p = 0; p< matrix.length; p++){
+            for(int q = i; q< matrix[0].length; q++){
+                int temp = matrix[p][q];
+                matrix[p][q] = matrix[q][p];
+                matrix[q][p] = temp;
+            }
+        }
+
 
     }
 }

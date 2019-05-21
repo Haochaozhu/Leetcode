@@ -6,9 +6,6 @@
  * the sum of the values of the sightseeing spots, minus the distance between them.
  *
  * Return the maximum score of a pair of sightseeing spots.
- *
- *
- *
  * Example 1:
  *
  * Input: [8,1,5,2,6]

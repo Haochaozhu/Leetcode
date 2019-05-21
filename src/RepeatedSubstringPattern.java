@@ -6,9 +6,6 @@ import java.util.Set;
  * substring of it and appending multiple copies of the substring together.
  * You may assume the given string consists of lowercase English letters only
  * and its length will not exceed 10000.
- *
- *
- *
  * Example 1:
  *
  * Input: "abab"
@@ -26,7 +23,18 @@ import java.util.Set;
  */
 public class RepeatedSubstringPattern {
     public boolean repeatedSubstringPattern(String s) {
-        int[] table = new int[256];
-        return false;
+        if (s == null || s.isEmpty()) return false;
+        int N = s.length();
+        if (N % 2 == 0) {
+            for (int i = 0; i < N / 2; i++) {
+
+            }
+            return false;
+        } else {
+            for (int i = 1; i < N; i++) {
+                if (s.charAt(i) != s.charAt(i - 1)) return false;
+            }
+            return true;
+        }
     }
 }

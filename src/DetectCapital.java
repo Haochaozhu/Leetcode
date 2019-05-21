@@ -17,9 +17,13 @@
  */
 public class DetectCapital {
     public boolean detectCapitalUse(String word) {
-        if (word.length() < 2) return true;
-        if (word.toUpperCase().equals(word)) return true;
-        if (word.substring(1).toLowerCase().equals(word.substring(1))) return true;
-        return false;
+        int count = 0;
+        for (char c : word.toCharArray()) {
+            if (c - 'A' >= 0 && c - 'Z' <= 0) count++;
+        }
+        if (count > 0 && word.charAt(0) - 'Z' > 0) return false;
+        if (count > 1 && count != word.length()) return false;
+        return true;
+
     }
 }

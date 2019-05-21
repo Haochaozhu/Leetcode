@@ -1,6 +1,6 @@
 import edu.princeton.cs.algs4.StdOut;
 
-/*
+/**
 Given a string s, find the longest palindromic substring in s.
 You may assume that the maximum length of s is 1000.
 
@@ -45,8 +45,9 @@ public class LongestPalindromicSubstring {
     }
 
     public String longestPalindrome2(String s) {
+        if (s == null || s.isEmpty() || s.length() == 1) return s;
         int N = s.length();
-        int index = 0, length = 0;
+        int index = 0, length = 1;
         boolean[][] dp = new boolean[N][N];
         for (int i = 0; i < N; i += 1) {
             dp[i][i] = true;
@@ -70,6 +71,7 @@ public class LongestPalindromicSubstring {
                 }
             }
         }
+        System.out.print("h");
         return s.substring(index, index + length);
     }
 
