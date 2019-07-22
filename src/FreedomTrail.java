@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * In the video game Fallout 4, the quest "Road to Freedom" requires players to
  * reach a metal dial called the "Freedom Trail Ring", and use the dial to spell a specific keyword in order to open the door.
@@ -28,8 +31,31 @@
  * It's guaranteed that string key could always be spelled by rotating the string ring.
  */
 public class FreedomTrail {
-    //TODO
+    Map<String, Integer> map;
     public int findRotateSteps(String ring, String key) {
-        return 0;
+        map = new HashMap<>();
+        return dfs(ring, key, 0);
+    }
+
+    private int dfs(String ring, String key, int idx) {
+        if (idx == key.length()) {
+            return 0;
+        }
+        if (map.containsKey(ring + idx)) {
+            return map.get(ring + idx);
+        }
+        int first = ring.indexOf(key.charAt(idx));
+        int last = ring.lastIndexOf(key.charAt(idx));
+        int minStep = Integer.MAX_VALUE;
+        for (int i = 0; i < ring.length(); i++) {
+            if (i == first || i == last) {
+                int step = 1 + Math.min(i, ring.length() - i);
+                String newRing = ring.substring(i) + ring.substring(0, i);
+                step += dfs(newRing, key, idx + 1);
+                minStep = Math.min(minStep, step);
+            }
+        }
+        map.put(ring + idx, minStep);
+        return minStep;
     }
 }

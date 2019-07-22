@@ -32,18 +32,27 @@ public class LongestWordInDictionaryThroughDeleting {
         Collections.sort(d, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                if (o1.length() == o2.length()) return o1.compareTo(o2);
-                else return o2.length() - o1.length();
+                if (o1.length() == o2.length()) {
+                    return o1.compareTo(o2);
+                } else return o2.length() - o1.length();
             }
         });
-        for (String st : d) if (canForm(s, st)) return st;
+        for (String str : d) {
+            if (check(s, str)) {
+                return str;
+            }
+        }
         return "";
     }
-    private boolean canForm(String s, String word) {
+
+    private boolean check (String s, String g) {
         int j = 0;
         for (int i = 0; i < s.length(); i++) {
-            if(word.charAt(j) == s.charAt(i)) j++;
+            if (s.charAt(i) == g.charAt(j)) {
+                j++;
+            }
+            if (j == g.length()) return true;
         }
-        return j == word.length();
+        return j == g.length();
     }
 }

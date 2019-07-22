@@ -27,7 +27,6 @@ import java.util.Deque;
  * 1 <= K <= 10 ^ 9
  */
 public class ShortestSubarrayWithSumAtLeastK {
-    //TODO
     public int shortestSubarray(int[] A, int K) {
         int N = A.length, res = N + 1;
         int[] B = new int[N + 1];

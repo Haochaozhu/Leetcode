@@ -36,4 +36,9 @@ public class UglyNumber {
         return num == 1;
     }
 
+    public static void main(String[] args) {
+        String s = "0000021";
+        System.out.println(Integer.parseInt(s));
+    }
+
 }

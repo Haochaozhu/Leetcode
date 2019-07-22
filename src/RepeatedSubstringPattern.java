@@ -24,17 +24,17 @@ import java.util.Set;
 public class RepeatedSubstringPattern {
     public boolean repeatedSubstringPattern(String s) {
         if (s == null || s.isEmpty()) return false;
-        int N = s.length();
-        if (N % 2 == 0) {
-            for (int i = 0; i < N / 2; i++) {
-
+        String cur = "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = s.length() / 2; i >= 1; i--) {
+            int repeats = s.length() / i;
+            cur = s.substring(0, i);
+            sb = new StringBuilder();
+            for (int j = 0; j < repeats; j++) {
+                sb.append(cur);
             }
-            return false;
-        } else {
-            for (int i = 1; i < N; i++) {
-                if (s.charAt(i) != s.charAt(i - 1)) return false;
-            }
-            return true;
+            if (s.equals(sb.toString())) return true;
         }
+        return false;
     }
 }

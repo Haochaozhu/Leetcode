@@ -50,6 +50,7 @@ import java.util.TreeMap;
  * NOTE: input types have been changed on April 15, 2019. Please reset
  * to default code definition to get new method signature.
  */
+
 public class FindRightInterval {
     public int[] findRightInterval(int[][] intervals) {
         int n = intervals.length;

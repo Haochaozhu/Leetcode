@@ -31,6 +31,7 @@
  * Calls to ExamRoom.leave(p) are guaranteed to have a student currently sitting in seat number p.
  */
 public class ExamRoom {
+    //TODO
     int[] seats;
     public ExamRoom(int N) {
         seats = new int[N];
@@ -73,7 +74,6 @@ public class ExamRoom {
 
     public static void main(String[] args) {
         ExamRoom r1 = new ExamRoom(999999999);
-
     }
 }
 

@@ -15,6 +15,32 @@
  */
 public class MaximumSwap {
     public int maximumSwap(int num) {
-        return 0;
+        String s = Integer.toString(num);
+        char[] arr = s.toCharArray();
+        int toSwap = 0;
+        for (int i = 0; i < arr.length; i++) {
+            int max = 0;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] - '0' >= max) {
+                    max = arr[j] - '0';
+                    toSwap = j;
+                }
+            }
+            if (max > arr[i] - '0') {
+                swap(arr, i, toSwap);
+                break;
+            }
+        }
+        int ans = 0;
+        for (char c : arr) {
+            ans *= 10;
+            ans += c - '0';
+        }
+        return ans;
+    }
+    private void swap(char[] arr , int i, int j) {
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }

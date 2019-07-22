@@ -21,6 +21,7 @@ import java.util.Set;
  */
 public class LonelyPixelI {
     public int findLonelyPixel(char[][] picture) {
+
         int m = picture.length;
         int n = picture[0].length;
         int count = 0;
